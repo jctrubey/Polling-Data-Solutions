@@ -1,0 +1,59 @@
+{% extends "blog/blog_base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block header %}
+
+{% endblock %}
+
+{% block content %}
+
+{% if user.is_staff %}
+
+{% if messages %}
+{% for message in messages %}
+<div>
+    <strong>{{ message|safe }}</strong>
+</div>
+{% endfor %}
+{% else %}
+
+<h2>Primary Elections Data File</h2>
+
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="file1"> Upload a file</label>
+    <input type="file" id="csv_file" name="file">
+    <small>Only accepts CSV files</small>
+    <button type="submit" id="upload" name="primary_update_form">Upload</button>
+</form>
+
+<br>
+
+<h2>General Election Data File</h2>
+
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="file1"> Upload a file</label>
+    <input type="file" id="csv_file2" name="file">
+    <small>Only accepts CSV files</small>
+    <button type="submit" id="upload2" name="general_update_form">Upload</button>
+</form>
+
+<div class="spinner-border text-secondary" role="status" style="display: none" id="loading">
+    <span class="sr-only">Loading...</span>
+</div>
+
+{% endif %}
+
+{% else %}
+
+<h2>Access Denied</h2>
+
+{% endif %}
+
+{% endblock content %}
+
+{% block scripts %}
+<script src="{% static 'graphs/js/data_update.js' %}"></script>
+{% endblock %}

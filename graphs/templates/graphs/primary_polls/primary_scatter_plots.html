@@ -1,0 +1,99 @@
+{% extends "blog/blog_base.html" %}
+{% load static %}
+
+{% block header %}
+<link rel="stylesheet" type="text/css" href="{% static 'graphs/css/primary_scatter_plots.css' %}">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" type="text/css">
+{% endblock %}
+
+{% block content %}
+
+<canvas id="scatter-plot" width="800" height="450"></canvas>
+
+{% endblock content %}
+
+{% block side_content %}
+
+<div class="form-group" onChange="select_primary();">
+  <label for="primary">Select Primary:</label>
+  <select class="form-control" id="primary">
+    <option value="Democratic">Democratic</option>
+    <option value="Republican">Republican</option>
+  </select>
+</div>
+
+
+<div id="DemCandidates" class="">
+  <div class="form-check">
+    <input class="form-check-input candidates" type="checkbox" value="Joseph R. Biden Jr." id="Biden" name="checkboxes">
+    <label class="form-check-label" for="Biden">
+      Biden
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input candidates" type="checkbox" value="Elizabeth Warren" id="Warren" name="checkboxes">
+    <label class="form-check-label" for="Warren">
+      Warren
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input candidates" type="checkbox" value="Bernard Sanders" id="Sanders" name="checkboxes">
+    <label class="form-check-label" for="Sanders">
+      Sanders
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input candidates" type="checkbox" value="Pete Buttigieg" id="Buttigieg" name="checkboxes">
+    <label class="form-check-label" for="Buttigieg">
+      Buttigieg
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input candidates" type="checkbox" value="Kamala D. Harris" id="Harris" name="checkboxes">
+    <label class="form-check-label" for="Harris">
+      Harris
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input candidates" type="checkbox" value="Amy Klobuchar" id="Klobuchar" name="checkboxes">
+    <label class="form-check-label" for="Klobuchar">
+      Klobuchar
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input candidates" type="checkbox" value="Andrew Yang" id="Yang" name="checkboxes">
+    <label class="form-check-label" for="Yang">
+      Yang
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input candidates" type="checkbox" value="Tulsi Gabbard" id="Gabbard" name="checkboxes">
+    <label class="form-check-label" for="Gabbard">
+      Gabbard
+    </label>
+  </div>
+</div>
+
+<div id="RepCandidates" class="hide">
+  <div class="form-check">
+    <input class="form-check-input candidates" type="checkbox" value="Donald Trump" id="Trump" name="checkboxes">
+    <label class="form-check-label" for="Trump">
+      Trump
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input candidates" type="checkbox" value="William F. Weld" id="Weld" name="checkboxes">
+    <label class="form-check-label" for="Weld">
+      Weld
+    </label>
+  </div>
+</div>
+
+<button id="addData" class="btn btn-secondary">Update Chart</button>
+
+{% endblock side_content %}
+
+{% block scripts %}
+<script src="{% static 'graphs/js/primary_scatter_plots.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "blog/blog_base.html" %}
+{% load static %}
+
+{% block header %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'graphs/css/primary_line_graphs.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" type="text/css">
+
+{% endblock %}
+
+{% block content %}
+
+<canvas id="line-chart" width="800" height="450"></canvas>
+
+
+{% endblock content %}
+
+{% block scripts %}
+    <script src="{% static 'graphs/js/general_polls/general_line_graphs.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "blog/blog_base.html" %}
+{% load static %}
+
+{% block header %}
+    <link rel="stylesheet" type="text/css" href="{% static 'graphs/css/primary_polls.css' %}">
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+        <div class="col-sm-6">
+            <a href="{% url 'primary-polls' %}" class="nounderline">
+            <div class="card border-primary" id="primary_polls">
+                <div class="card-body">
+                    <h5 class="card-title">Primary Polls</h5>
+                    <p class="card-text text-black textchange">Contains graphs and data for primary polls</p>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-sm-6">
+            <a href="{% url 'general-polls' %}" class="nounderline">
+            <div class="card border-secondary" id="general_polls">
+                <div class="card-body">
+                    <h5 class="card-title">General Election Polls</h5>
+                    <p class="card-text text-black textchange">Contains graphs and data for general election polls</p>
+                </div>
+            </div>
+            </a>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+    <script src="{% static 'graphs/js/graph_home.js' %}"></script>
+{% endblock %}

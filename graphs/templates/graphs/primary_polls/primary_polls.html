@@ -1,0 +1,35 @@
+{% extends "blog/blog_base.html" %}
+{% load static %}
+
+{% block header %}
+    <link rel="stylesheet" type="text/css" href="{% static 'graphs/css/primary_polls.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-6">
+            <a href="{% url 'primary-line-graphs' %}" class="nounderline">
+            <div class="card border-primary" id="line_graphs">
+                <div class="card-body">
+                    <h5 class="card-title">Line Graphs</h5>
+                    <p class="card-text text-black textchange">Contains line graphs for primary polls.</p>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-sm-6">
+            <a href="{% url 'primary-scatter-plots' %}" class="nounderline">
+            <div class="card border-secondary" id="scatter_plot">
+                <div class="card-body">
+                    <h5 class="card-title">Scatter Plots</h5>
+                    <p class="card-text text-black textchange">Contains Scatter Plots for Primary Polls</p>
+                </div>
+            </div>
+            </a>
+        </div>
+    </div>
+    {% endblock content %}
+
+{% block scripts %}
+    <script src="{% static 'graphs/js/primary_polls.js' %}"></script>
+{% endblock %}
